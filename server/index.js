@@ -9,14 +9,13 @@ app.use(express.json());
 
 const { getCompliment } = require('./controller')
 const { getFortune } = require('./controller')
-const { pushCompliment } = require('./controller')
-const { getFavColor } = require('./controller')
-const { getAnimal } = require('./controller')
+const { putGoals } = require('./controller')
+const { getGoals } = require('./controller')
+
 
 app.get("/api/compliment", getCompliment);
 app.get("/api/fortune", getFortune);
-app.post("/api/addCompliment", pushCompliment);
-app.get("/api/favColor", getFavColor)
-app.get ("/api/animal", getAnimal )
+app.put("/api/inspiration", putGoals);
+app.get("/api/goals", getGoals);
 
 app.listen(4000, () => console.log("Server running on 4000"));

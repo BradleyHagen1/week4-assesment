@@ -3,34 +3,18 @@
   <head>
     <title>Back End Assessment</title>
   </head>
-  <body class="container">
-    <button id="complimentButton">Get a compliment</button>
-    <button id="fortuneButton">Get a Fortune</button>
+  <body onload="getGoals()" class="container">
+    <button id="complimentButton">Get a compliment</button> <br/>
+    <button id="fortuneButton">Get a Fortune</button> <br/>
 
+  <input type="text" placeholder="Type a goal" id="goals">
+    <button id="goalsButton">Add to todo list</button>
+    <button id="deleteGoals">Delete</button>
+   <br/>
+   <br/>
 
-  <form>
-    <input id="form" type="text" placeholder="Add Compliment" > 
-    <input type="submit">
-  </form>
+  
 
-  <select id="color" type="dropdown" placeholder="favorite color">
-    <label for="colors">choose a color</label>
-    <option>choose your favorite color</option>
-    <option value="blue">blue</option>
-    <option value="red">red</option>
-    <option value="green">green</option>
-    <option value="purple">purple</option>
-    <option value="yellow">yellow</option>
-    <option value="black">black</option>
-  </select>
-
-  <form>
-    <input id="animal" type="checkbox">
-    <label for="dog" >dogs</label>
-    <br>
-    <input id="animal" type="checkbox">
-    <label for="cat">cats</label>
-  </form>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>

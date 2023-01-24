@@ -23,36 +23,26 @@ const getFortune = () => {
     
 fortuneBtn.addEventListener('click', getFortune);
 
-const form = document.getElementById('form')
 
-const pushCompliment = () => {
-    axios.push("http://localhost:4000/api/addCompliment")
+
+const putGoals = () => {
+    let goal = document.getElementById('inspiration')
+    axios.put("http://localhost:4000/api/inspiration/", {input: goal})
+        .then(res => {
+            const data = res.data;
+            alert(data);
+     });
+};
+
+let goalList = []
+function getGoals() {
+    axios.get("http://localhost:4000/api/Goals/")
     .then(res => {
-        const data = res.data;
-        alert(data);
+        console.log(goalList);
+        goalList = res.data;
     });
 };
-  
-form.addEventListener('submit', pushCompliment);
-
-const favColor = document.getElementById('color')
-
-const getFavColor = () => {
-    axios.get("http://localhost:4000/api/favColor")
-    .then()
-    return favColor;
 
 
-
-};
-
-
-const animal = document.getElementById('animal')
-
-const getAnimal = () => {
-    axios.get("http://localhost:4000/api/animal")
-    
-    return animal;
-
-
-}
+goalsButton.addEventListener('click', putGoals);
+deleteGoals.addEventListener('click', deleteGoals);

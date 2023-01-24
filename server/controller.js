@@ -12,30 +12,39 @@ module.exports = {
     },
     
     getFortune: (req, res) => {
-        const fortunes = ['You are going to get thorugh it.', 'Sometimes life isnt fair and you have to accept it.', 'Good things are coming soon.','A beautiful, smart, and loving person will be coming into your life.','An eye for an eye leaves everyone blind.','Trust you instincts.'];
+        const fortunes = ['You are going to get through this.', 'Sometimes life isnt fair and you have to accept it.', 'Good things are coming soon.','A beautiful, smart, and loving person will be coming into your life.','An eye for an eye leaves everyone blind.','Trust you instincts.'];
         
         let randomIndex = Math.floor(Math.random() * fortunes.length);
         let randomFortune = fortunes[randomIndex];
         
         res.status(200).send(randomFortune);
+        
     },
+
+    putinspiration: (req, res) => {
+        let inspirationalQuotes=['you got this!', 'Keep trying!', 'You are almost there!'];
+
+        
+    },
+
+    goalList: [],
     
-    pushCompliment: (req, res) => {
-            const newCompliment = [compliments];
-            newCompliment.push (getCompliment)
+    getGoals: (req, res) => {
     
-        
-        
-    },
-
-    getFavColor: () => {
-        const favColor = getFavColor;
+        res.status(200).send(this.goalList)
 
     },
 
-    getAnimal: () => {
-        
-    }
+    putGoals: (req, res) => {
+    
+        res.status(200).send(this.goalList.put(req.data))
 
+    },
+
+    deleteGoal: (req, res) => {
+    
+        res.status(200).send(this.goalList.delete(req.data))
+
+    },
 
 }
