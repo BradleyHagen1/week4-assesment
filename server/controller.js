@@ -21,30 +21,33 @@ module.exports = {
         
     },
 
-    putinspiration: (req, res) => {
-        let inspirationalQuotes=['you got this!', 'Keep trying!', 'You are almost there!'];
-
-        
-    },
 
     goalList: [],
     
     getGoals: (req, res) => {
-    
-        res.status(200).send(this.goalList)
-
+        if(goalList.length === 0) {
+            res.status(200).send('No Goals Found');
+        } else {
+            res.status(200).send(goalList)
+        }
     },
 
     putGoals: (req, res) => {
-    
-        res.status(200).send(this.goalList.put(req.data))
-
+        if (!req.body) {
+            res.status(400).send('Bad Request');
+        } else {
+            goalList.push(req.body);
+            res.status(200).send(goalList);
+        }
     },
 
     deleteGoal: (req, res) => {
-    
-        res.status(200).send(this.goalList.delete(req.data))
-
+        if (!req.body) {
+            res.status(400).send('Bad Request');
+        } else {
+            goalList.splice(req.body.index, 1);
+            res.status(200).send(goalList);
+        }
     },
 
 }

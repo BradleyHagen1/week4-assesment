@@ -1,4 +1,9 @@
 const complimentBtn = document.getElementById("complimentButton")
+const fortuneBtn = document.getElementById('fortuneButton')
+const goalsBtn = document.getElementById('goalsButton')
+const deleteButton = document.getElementById('deleteGoals')
+
+let goalList = []
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -10,9 +15,6 @@ const getCompliment = () => {
 
 complimentBtn.addEventListener('click', getCompliment);
 
-
-const fortuneBtn = document.getElementById('fortuneButton')
-
 const getFortune = () => {
     axios.get("http://localhost:4000/api/fortune/")
         .then(res => {
@@ -23,26 +25,35 @@ const getFortune = () => {
     
 fortuneBtn.addEventListener('click', getFortune);
 
-
-
 const putGoals = () => {
-    let goal = document.getElementById('inspiration')
-    axios.put("http://localhost:4000/api/inspiration/", {input: goal})
+    let goal = document.getElementById('newGoal').value;
+    axios.put("http://localhost:4000/api/newGoal/", {input: goal})
         .then(res => {
             const data = res.data;
             alert(data);
+            getGoals();
      });
 };
 
-let goalList = []
-function getGoals() {
-    axios.get("http://localhost:4000/api/Goals/")
-    .then(res => {
-        console.log(goalList);
-        goalList = res.data;
-    });
+const getGoals = () => {
+    function getGoals() {
+        axios.get("http://localhost:4000/api/goals/")
+        .then(res => {
+            goalList = res.data;
+            console.log(goalList)
+        });   
+
+    };
+}
+
+const deleteGoals = () => {
+    let goalToDelete = document.getElementById('deleteGoalsBtn').value;
+    axios.delete(`http://localhost:4000/api/inspiration/${goalToDelete}`)
+        .then(res => {
+            alert('Goal Deleted');
+            getGoals();
+        });
 };
 
-
-goalsButton.addEventListener('click', putGoals);
-deleteGoals.addEventListener('click', deleteGoals);
+goalsBtn.addEventListener('click', putGoals);
+deleteGoalsBtn.addEventListener('click', deleteGoals);
