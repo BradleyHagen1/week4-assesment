@@ -4,27 +4,20 @@
     <title>Back End Assessment</title>
   </head>
   <body onload="getGoals()" class="container">
-    <button id="complimentButton">Get a compliment</button> <br/>
-    <button id="fortuneButton">Get a Fortune</button> <br/>
+    <button id="complimentButton">Get a compliment</button> <br />
+    <button id="fortuneButton">Get a Fortune</button> <br />
 
-  <!-- <input type="text" placeholder="Type a goal" id="goals"> -->
+    <form>
+      <label for="newGoal">Enter your goal:</label>
+      <input type="text" id="newGoal" />
+      <button type="submit" id="goalsButton">Add to todo list</button>
+      <button id="deleteGoalsBtn">Delete</button>
+    </form>
 
-  <form>
-    <label for="newGoal">Enter your goal:</label>
-    <input type="text" id="newGoal">
-    <button type="submit" id="goalsBtn">Add to todo list</button>
-    <button id="deleteGoalsBtn">Delete</button>
-  </form>
-  
-    <!-- <button id="goalsButton">Add to todo list</button> -->
-   <br/>
-   <br/>
-
-  
-
+    <br />
+    <br />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
-    
   </body>
 </html>

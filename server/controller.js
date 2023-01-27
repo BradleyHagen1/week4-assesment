@@ -1,3 +1,4 @@
+const goalList = []
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -22,7 +23,7 @@ module.exports = {
     },
 
 
-    goalList: [],
+    goalList,
     
     getGoals: (req, res) => {
         if(goalList.length === 0) {
