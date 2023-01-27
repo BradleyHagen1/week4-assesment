@@ -30,6 +30,7 @@ const putGoals = () => {
     axios.put("http://localhost:4000/api/newGoal/", {input: goal})
         .then(res => {
             const data = res.data;
+            console.log('putgoal', data)
             alert(data);
             getGoals();
      });

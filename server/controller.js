@@ -37,7 +37,7 @@ module.exports = {
         if (!req.body) {
             res.status(400).send('Bad Request');
         } else {
-            goalList.push(req.body);
+            goalList.push(req.body.input);
             res.status(200).send(goalList);
         }
     },
